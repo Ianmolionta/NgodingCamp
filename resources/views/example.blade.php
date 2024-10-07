@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <title>Document</title>
 </head>
 <body>
@@ -16,6 +17,7 @@
                     <th>nama</th>
                     <th>nim</th>
                     <th>address</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,6 +27,14 @@
                         <td>{{ $d->name}}</td>
                         <td>{{ $d->nim}}</td>
                         <td>{{ $d->address}}</td>
+                        <td>
+                            <a href="{{ route('getDataById', $d->id) }}" class="fa fa-pen"></a>
+                            <form action="{{ route('deleteData', $d->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="fa fa-trash" type="submit"></button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

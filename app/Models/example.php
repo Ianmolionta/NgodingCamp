@@ -10,6 +10,7 @@ class example extends Model
     use HasFactory;
     protected $table = 'example';
     protected $fillable = [
+        'id',
         'name',
         'nim',
         'address'
